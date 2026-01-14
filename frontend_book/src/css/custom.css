@@ -1,0 +1,169 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/*
+  Theme foundations for the docs UI.
+  Keep these as global tokens and low-level rules; story-specific tweaks should
+  be added in later tasks.
+*/
+
+:root {
+  /* Brand */
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+
+  /* Typography */
+  --ifm-font-family-base: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+
+  /* Layout + spacing */
+  --ifm-spacing-horizontal: 1.25rem;
+  --ifm-container-width-xl: 1200px;
+  --ui-content-max-width: 75ch;
+
+  /* Shape + depth */
+  --ifm-global-radius: 10px;
+  --ui-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --ui-shadow-md: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+  /* Code */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Focus */
+  --ui-focus-ring: 2px solid var(--ifm-color-primary);
+}
+
+/* For readability concerns, use a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
+  line-height: var(--ifm-line-height-base);
+  font-size: var(--ifm-font-size-base);
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings: clearer hierarchy + better rhythm */
+.theme-doc-markdown h1 {
+  font-size: 2.1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.theme-doc-markdown h2 {
+  font-size: 1.6rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.theme-doc-markdown h4 {
+  font-size: 1.05rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Paragraphs + lists */
+.theme-doc-markdown p {
+  margin: 0.85rem 0;
+}
+
+.theme-doc-markdown ul,
+.theme-doc-markdown ol {
+  padding-left: 1.35rem;
+}
+
+.theme-doc-markdown li {
+  margin: 0.35rem 0;
+}
+
+/* Code blocks: readable + safe overflow */
+.theme-code-block {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.prism-code {
+  font-size: 0.95em;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* Inline code */
+.theme-doc-markdown code {
+  border-radius: 6px;
+}
+
+/* Tables: safe overflow */
+.theme-doc-markdown table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Admonitions/callouts */
+.theme-admonition {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+:where(a, button, [role='button'], input, textarea, select, summary):focus-visible {
+  outline: var(--ui-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Constrain long-form reading width without changing overall container layout. */
+.theme-doc-markdown {
+  max-width: var(--ui-content-max-width);
+}
+
+/* Mobile: prioritize space efficiency and prevent cramped padding. */
+@media (max-width: 996px) {
+  :root {
+    --ifm-spacing-horizontal: 1rem;
+    --ui-content-max-width: 100%;
+  }
+
+  .theme-doc-markdown {
+    max-width: 100%;
+  }
+
+  .theme-doc-markdown h1 {
+    font-size: 1.9rem;
+  }
+
+  .theme-doc-markdown h2 {
+    font-size: 1.45rem;
+  }
+}
